@@ -1,3 +1,5 @@
+package modelo;
+
 public interface iRadio{
 
     //Tiene que iniciar apagada y funciona para cambiar la radio de encendida a apagada

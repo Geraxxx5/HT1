@@ -1,6 +1,6 @@
 package modelo;
 
-public interface iRadio{
+public interface IRadio{
 
     //Tiene que iniciar apagada y funciona para cambiar la radio de encendida a apagada
     public boolean power();

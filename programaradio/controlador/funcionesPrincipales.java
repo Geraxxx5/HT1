@@ -25,4 +25,19 @@ public class funcionesPrincipales {
     	}
         return mostrarEstado;
     }
+    
+    public String cambiarFrecuencia() {
+    	
+    	String frecuenciaActual = "";
+    	
+    	if (aR.frecuencia()) {
+    		frecuenciaActual = "Estas en FM";
+    	}
+    	else {
+    		frecuenciaActual = "Estas en AM";
+    	}
+    	return frecuenciaActual;
+    }
+    
+    
 }

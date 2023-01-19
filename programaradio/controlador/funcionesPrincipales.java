@@ -56,11 +56,11 @@ public class funcionesPrincipales {
      */
     public void cambiarEstacion(boolean subirBajar) {
     	if (aR.frecuencia()) {
-    		this.estacion = 0.2;
+    		this.estacion = 87.9;
     	}
     	
     	else {
-    		this.estacion = 0.0;
+    		this.estacion = 530.0;
     	}
     }
     
@@ -98,6 +98,53 @@ public class funcionesPrincipales {
     	}
     	return res;
     	
+    }
+    /**
+     * Este metodo permite cambiar la emisora
+     * @param cambio un booleano que nos indica si se quiere recorrer hacia abajo o hacia arriba (si es true ira hacia arriba, si es false ira hacia abajo)
+     */
+    public void cambiar(boolean cambio) {
+    	if (cambio) {
+    		
+    		if (aR.frecuencia()) {
+    			if (this.estacion ==107.9) {
+    				this.estacion = 107.9;
+    			}
+    			else {
+    				this.estacion += 0.2;
+    			}
+    		}
+    		else {
+    			if (this.estacion ==1610.0) {
+    				this.estacion = 1610.0;
+    			}
+    			else {
+    				this.estacion +=10.0;
+    			}
+    		}
+    	}
+    	else {
+    		if (aR.frecuencia()) {
+    			
+    			if (this.estacion == 87.9) {
+    				this.estacion = 87.9;
+    			}
+    			else {
+    				this.estacion -=0.2;
+    			}
+    			
+    		}
+    		else {
+    			
+    			if (this.estacion ==530.0) {
+    				this.estacion = 530.0;
+    			}
+    			else {
+    				this.estacion -= 10.0;
+    			}
+    			
+    		}
+    	}
     }
     
 }

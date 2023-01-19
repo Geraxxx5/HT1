@@ -79,13 +79,25 @@ public class funcionesPrincipales {
     
     /**
      * Este metodo devuelve la emisora actual
-     * @return
+     * @return un string que indica la emisora seleccionada
      */
     public String emisoraActual() {
     	
     	String emactual = String.valueOf(this.estacion);
     	return "Actualmente estas escuchando la siguiente estacion: " + emactual;
     }
-    
+    public String seleccionarEmsiora(int posicion) {
+    	String res ="";
+    	if (posicion >=12 ||posicion < 0) {
+    		res = "Elegiste un valor invalido";
+    		
+    	}
+    	else {
+    		String emElegida = String.valueOf(this.emisorasfavoritas.get(posicion+1));
+        	res = "Elegiste la emisora"+emElegida;
+    	}
+    	return res;
+    	
+    }
     
 }

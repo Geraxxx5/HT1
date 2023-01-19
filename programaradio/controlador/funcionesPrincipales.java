@@ -16,6 +16,13 @@ public class funcionesPrincipales {
     AtributosRadio aR = new AtributosRadio();
     
     public String enceder(){
-        return "";
+    	String mostrarEstado = "";
+    	if (aR.power()){
+    		mostrarEstado = "EL radio esta encendido";
+    	}
+    	else {
+    		mostrarEstado = "El radio esta apagado";
+    	}
+        return mostrarEstado;
     }
 }

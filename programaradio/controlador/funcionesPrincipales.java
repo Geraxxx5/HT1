@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.AtributosRadio;
 
 
@@ -15,12 +17,14 @@ import modelo.AtributosRadio;
  */
 public class funcionesPrincipales {
     AtributosRadio aR = new AtributosRadio();
+    private Double estacion; 
+    private ArrayList<Double> emisorasfavoritas = new ArrayList<Double>();
     
     /**
      * Este metodo muestra el estado del radio 
      * @return se retorna un texto el cual indica si el radio esta encendido o apagado
      */
-    public String enceder(){
+    public String encender(){
     	String mostrarEstado = ""; // En esta variable se guarda el texto que se mostrara 
     	if (aR.power()){
     		mostrarEstado = "EL radio esta encendido";
@@ -35,7 +39,6 @@ public class funcionesPrincipales {
      * Este metodo srive para indicar en cuál frecuencia se encuentra el usuario 
      * @return regresa un texto el cual indica si el usuario se encuentra en la frecuencia AM o FM
      */
-    
     public String cambiarFrecuencia() {
     	
     	String frecuenciaActual = "";
@@ -48,9 +51,41 @@ public class funcionesPrincipales {
     	}
     	return frecuenciaActual;
     }
-    
-    public String cambiarEstacion() {
-    	return "";
+    /**
+     * Este metodo devuelve un texto el cual indica la estacion
+     */
+    public void cambiarEstacion(boolean subirBajar) {
+    	if (aR.frecuencia()) {
+    		this.estacion = 0.2;
+    	}
+    	
+    	else {
+    		this.estacion = 0.0;
+    	}
     }
+    
+    /**
+     * Este metodo permiter agregar emisoras favoritas
+     * @param emisora representa la emisora que sera agregada 
+     */
+    public void agregarEmisora(double emisora) {
+    	if (this.emisorasfavoritas.size() != 12) {
+    		this.emisorasfavoritas.add(emisora);
+    	}
+    	else {
+    		System.out.println("Ya no puedes agregar mas emisoras");
+    	}
+    }
+    
+    /**
+     * Este metodo devuelve la emisora actual
+     * @return
+     */
+    public String emisoraActual() {
+    	
+    	String emactual = String.valueOf(this.estacion);
+    	return "Actualmente estas escuchando la siguiente estacion: " + emactual;
+    }
+    
     
 }

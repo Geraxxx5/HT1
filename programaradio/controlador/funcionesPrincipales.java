@@ -10,13 +10,18 @@ import modelo.AtributosRadio;
 
 /**
  *
- * @author Gerax
+ * @author Gerardo Pineda, Josue Say, Pedro Pablo Guzman
+ * @version 1.0.0
  */
 public class funcionesPrincipales {
     AtributosRadio aR = new AtributosRadio();
     
+    /**
+     * Este metodo muestra el estado del radio 
+     * @return se retorna un texto el cual indica si el radio esta encendido o apagado
+     */
     public String enceder(){
-    	String mostrarEstado = "";
+    	String mostrarEstado = ""; // En esta variable se guarda el texto que se mostrara 
     	if (aR.power()){
     		mostrarEstado = "EL radio esta encendido";
     	}
@@ -25,6 +30,11 @@ public class funcionesPrincipales {
     	}
         return mostrarEstado;
     }
+    
+    /**
+     * Este metodo srive para indicar en cuál frecuencia se encuentra el usuario 
+     * @return regresa un texto el cual indica si el usuario se encuentra en la frecuencia AM o FM
+     */
     
     public String cambiarFrecuencia() {
     	
@@ -39,5 +49,8 @@ public class funcionesPrincipales {
     	return frecuenciaActual;
     }
     
+    public String cambiarEstacion() {
+    	return "";
+    }
     
 }

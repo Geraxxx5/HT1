@@ -4,7 +4,7 @@ package modelo;
 import java.util.ArrayList;
 
 
-public class AtributosRadio implements IRadio {
+public class Radio implements IRadio {
     //Estado actual es si esta encendido o apagado
     boolean estadoActual = false; //false es apagaado y true encendido
     boolean frecuencia = false; //false AM y true FM

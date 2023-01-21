@@ -90,7 +90,7 @@ public class funcionesPrincipales {
             }       
             
             System.out.println("Ahora entro a emisoraActual");
-            cambiar+= aR.emisoraActual();
+            cambiar+= (float)(aR.emisoraActual());
         }else{
             cambiar = "La radio no esta encendida";
         }
@@ -156,7 +156,7 @@ public class funcionesPrincipales {
         if(estadoRadio){
             if(posicion-1 >= 0 && posicion-1 < emisorasfavoritas.size()){
                 aR.cargarEmisoraGuardada(posicion-1);
-                res = "Se cambio la estacion a: "+aR.emisoraActual();
+                res = "Se cambio la estacion a: "+(float)(aR.emisoraActual());
             }else{
                 res = "Aun no hay emisora para ese boton";
             }

@@ -33,6 +33,14 @@ public class Radio implements IRadio {
 	 * */
 	ArrayList<Double> emisorasGuardadas = new ArrayList<>();
 
+	// Constructor
+	/**
+	 * Construye una radio 
+	 * */
+	public Radio() {
+		
+	}
+	
 	// METODOS
 	/**
 	 * Enciende/Apaga la radio

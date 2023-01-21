@@ -1,5 +1,9 @@
 package modelo;
-
+/**
+ * Clase IRadio Tiene como objetivo representar métodos generales para el
+ * funcionamiento de la clase Radio
+ * @author Gerardo Pineda
+ */
 public interface IRadio{
 
     //Tiene que iniciar apagada y funciona para cambiar la radio de encendida a apagada

@@ -1,35 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * Clase funcionesPrinciples 
+ * Es la clase main que tiene como objetivo realizar en consola
+ * las acciones de la clase Radio
+ * @author Gerardo Pineda, Josue Say, Pedro Pablo Guzman
+ * */
 package controlador;
 
+// libreria para el manejor de ArrayList
 import java.util.ArrayList;
-
+// clase del paquete modelo para referenciar acceder a los metodos de IRadio
 import modelo.IRadio;
+// clase del paquete modelo para referenciar a la radio
 import modelo.Radio;
 
-
-/**
- *
- * @author Gerardo Pineda, Josue Say, Pedro Pablo Guzman
- * @version 1.0.0
- */
 public class funcionesPrincipales {
     
+	// instancia de la radio
 	IRadio aR = new Radio();
 	
-    private Double estacion;
+	/**
+	 * estación actual de la radio
+	 * */
+	private Double estacion;
+	/**
+	 * estado de la radio
+	 * true: encendido
+	 * false: apagado
+	 * */
     boolean estadoRadio = false;
+    /**
+     * listado de emisoras guardadas
+     * */
     private ArrayList<Double> emisorasfavoritas = new ArrayList<Double>();
     
     /**
-     * Este metodo muestra el estado del radio 
-     * @return se retorna un texto el cual indica si el radio esta encendido o apagado
+     * Muestra al usuario si la radio esta encendida/apagada 
+     * @return mostrarEstado, variable que menciona si la radio esta encendida/apaga
      */
-    public String encender(){
-    	String mostrarEstado = ""; // En esta variable se guarda el texto que se mostrara 
+    public String encender(){   	
+    	// mensaje a mostrar
+    	String mostrarEstado = "";  
     	if (aR.power()){
     		mostrarEstado = "EL radio esta encendido";
                 estadoRadio = true;
@@ -42,12 +52,15 @@ public class funcionesPrincipales {
     }
     
     /**
-     * Este metodo srive para indicar en cuál frecuencia se encuentra el usuario 
-     * @return regresa un texto el cual indica si el usuario se encuentra en la frecuencia AM o FM
+     * muestra un mensaje al usuario sobre la frecuenci actual 
+     * @return frecuenciaActual, regresa un mensaje mencionando la frecuencia
      */
     public String cambiarFrecuencia() {
     	
+    	// texto a mostrar
     	String frecuenciaActual = "";
+    	
+    	// radio encendida
     	if(estadoRadio){
             if (aR.frecuencia()) {
     		frecuenciaActual = "Estas en FM";
@@ -62,10 +75,12 @@ public class funcionesPrincipales {
     	return frecuenciaActual;
     }
     /**
-     * Este metodo devuelve un texto el cual indica la estacion
+     * metodo que indica la emisora de la radio
+     * @return cambiar, mensaje de la emisora actual
      */
     public String cambiarEstacion(boolean subirBajar) {
-        String cambiar = "";
+        // mensaje a mostrar
+    	String cambiar = "";
         if(estadoRadio){
             aR.cambiarEmisora(subirBajar);
             if(subirBajar){
@@ -73,6 +88,8 @@ public class funcionesPrincipales {
             }else{
                 cambiar = "bajo la emisora a: ";
             }       
+            
+            System.out.println("Ahora entro a emisoraActual");
             cambiar+= aR.emisoraActual();
         }else{
             cambiar = "La radio no esta encendida";
@@ -81,16 +98,23 @@ public class funcionesPrincipales {
         return cambiar;
     }
     
+    /**
+     * metodo que retorna el estado de la radio
+     * @return estadoRadio, variable que almacena el estado de la radio
+     * true: encendido
+     * false: apagado
+     * */
     public boolean isEstadoRadio(){
         return estadoRadio;
     }
     
     /**
-     * Este metodo permiter agregar emisoras favoritas
-     * @param emisora representa la emisora que sera agregada 
+     * agrega emisoras favoritas a un arraylist
+     * @param agregar, mensaje con lemisora representa la emisora que sera agregada 
      */
     public String agregarEmisora(double emisora) {
-        String agregar = "";
+        // mensaje a mostrar
+    	String agregar = "";
         if(estadoRadio){
             if (this.emisorasfavoritas.size() != 12) {
     		this.emisorasfavoritas.add(emisora);
@@ -105,6 +129,10 @@ public class funcionesPrincipales {
     	return agregar;
     }
     
+    /**
+     * obtenre la emisora que se reprocue
+     * @param valor con la emisora actual
+     * */
     public double obtenerEmisora(){
         return aR.emisoraActual();
     }
@@ -119,6 +147,10 @@ public class funcionesPrincipales {
     	return "Actualmente estas escuchando la siguiente estacion: " + emactual;
     }
     
+    /**
+     * mostrar la emisora seleccionada por el usuario
+     * @param res, mensaje con la emisora seleccionada
+     * */
     public String seleccionarEmsiora(int posicion) {
     	String res ="";
         if(estadoRadio){
@@ -135,11 +167,12 @@ public class funcionesPrincipales {
     	return res;
     	
     }
-    
-    
+      
     /**
-     * Este metodo permite cambiar la emisora
-     * @param cambio un booleano que nos indica si se quiere recorrer hacia abajo o hacia arriba (si es true ira hacia arriba, si es false ira hacia abajo)
+     * cambiar de emisora
+     * @param cambio, variable que almacena si se desea aumentar o bajar de emisora 
+     * true: aumentar
+     * false: bajar
      */
     public void cambiar(boolean cambio) {
     	aR.cambiarEmisora(cambio);

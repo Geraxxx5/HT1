@@ -1,10 +1,10 @@
+package controlador;
 /**
  * Clase funcionesPrinciples 
  * Es la clase main que tiene como objetivo realizar en consola
  * las acciones de la clase Radio
  * @author Gerardo Pineda, Josue Say, Pedro Pablo Guzman
  * */
-package controlador;
 
 // libreria para el manejor de ArrayList
 import java.util.ArrayList;
